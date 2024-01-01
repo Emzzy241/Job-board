@@ -6,12 +6,14 @@ namespace JobBoard.Models
 {
     public class JobOpening
     {
-        public string JobTitle { get; }
+        public string JobTitle { get; set; }
+        public string JobDescription { get; }
         
 
-        public JobOpening(string myJobTitle)
+        public JobOpening(string myJobTitle, string myJobDescription)
         {
             JobTitle = myJobTitle;
+            JobDescription = myJobDescription;
         }
         
     }

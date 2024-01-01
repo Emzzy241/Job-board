@@ -3,9 +3,9 @@ using JobBoard.Models;
 
 namespace JobBoard.Controllers
 {
-    public class HomeController : Controller
+    public class JobBoardController : Controller
     {
-        [HttpGet("/")]
+        [HttpGet("/jobboard")]
         public ActionResult Index()
         {
             return View();

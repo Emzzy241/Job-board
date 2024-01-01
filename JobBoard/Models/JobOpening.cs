@@ -16,6 +16,9 @@ namespace JobBoard.Models
         public string JobTitle { get; set; }
         public string JobDescription { get; set; }
         public Contact JobContactInfo { get; set; }
+        public int JobOpeningId { get; set; }
+
+        private static List<JobOpening> _listOfJobs = new List<JobOpening>();
         
         
         
@@ -25,6 +28,24 @@ namespace JobBoard.Models
             JobTitle = myJobTitle;
             JobDescription = myJobDescription;
             JobContactInfo = myJobContactInfo;
+            JobOpeningId = _listOfJobs.Count;
+            _listOfJobs.Add(this);
+        }
+
+        public static List<JobOpening> GetAllJobs()
+        {
+            return _listOfJobs;
+        }
+
+        public static void RemoveAllJobs()
+        {
+            _listOfJobs.Clear();
+        }
+
+        public static JobOpening FindJob(int jobId)
+        {
+            JobOpening foundJob = _listOfJobs[jobId-1];
+            return foundJob;
         }
         
     }

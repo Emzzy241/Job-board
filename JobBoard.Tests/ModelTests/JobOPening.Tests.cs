@@ -8,8 +8,13 @@ using System.Collections.Generic;
 namespace JobBoard.Tests.ModelTests
 {
     [TestClass]
-    public class JobOpeningTests
+    public class JobOpeningTests : IDisposable
     {
+
+        public void Dispose()
+        {
+            JobOpening.RemoveAllJobs();
+        }
         
         // 1st Test: Test for constructor
        [TestMethod]
@@ -164,6 +169,66 @@ namespace JobBoard.Tests.ModelTests
 
             // Assert
             Assert.AreEqual("Bisi Bolatito", job.JobContactInfo.Name);
+        }
+
+        // 8th Test: A List for all Job's that has been posted to the job board
+        [TestMethod]
+        [TestCategory("JobOpening")]
+        public void GetAllJobs_ReturnsTheListOfJobsOnJobBoard_List()
+        {
+            // Arrange
+            Contact contactInfo = new Contact
+            {
+                Name = "Mojiboye Emmanuel",
+                Email = "emzzyoluwole@gmail.com",
+                PhoneNumber = "+234-9012857304"
+            };
+            Contact contactInfo2 = new Contact
+            {
+                Name = "Mojiboye Emmanuel",
+                Email = "emzzyoluwole@gmail.com",
+                PhoneNumber = "+234-9012857304"
+            };
+            JobOpening job = new JobOpening("Software Developer", "Develop software", contactInfo);
+            JobOpening job2 = new JobOpening("Baker", "Able to make good HamBurgers", contactInfo2);
+
+            // Act
+
+            List<JobOpening> expectedListOfJobs = new List<JobOpening>(){job, job2};
+
+            List<JobOpening> returnedListOfJobs = JobOpening.GetAllJobs();
+
+            // Assert
+            CollectionAssert.AreEqual(expectedListOfJobs, returnedListOfJobs);
+        }
+
+        // 9th Test: Test to determine JobOpening's id
+        [TestMethod]
+        [TestCategory("JobOpening")]
+        public void FindJob_FindsJobOpeningInstanceWithItsId_JobOpening()
+        {
+            // Arrange
+            Contact contactInfo = new Contact
+            {
+                Name = "Mojiboye Emmanuel",
+                Email = "emzzyoluwole@gmail.com",
+                PhoneNumber = "+234-9012857304"
+            };
+            Contact contactInfo2 = new Contact
+            {
+                Name = "Mojiboye Emmanuel",
+                Email = "emzzyoluwole@gmail.com",
+                PhoneNumber = "+234-9012857304"
+            };
+            JobOpening job = new JobOpening("Software Developer", "Develop software", contactInfo);
+            JobOpening job2 = new JobOpening("Baker", "Able to make good HamBurgers", contactInfo2);
+
+            // Act
+            JobOpening returnedJob = JobOpening.FindJob(2);
+
+            // Assert
+            Assert.AreEqual(job2, returnedJob);
+
         }
 
 

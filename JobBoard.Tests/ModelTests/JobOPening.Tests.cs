@@ -63,6 +63,21 @@ namespace JobBoard.Tests.ModelTests
             // Assert
             Assert.AreEqual(expectedjobDescription, returnedJobDescription);
         } 
+
+        // 5th Test: Test to set the JoDescription field in our constructor
+        [TestMethod]
+        public void SetJobDescription_SetsJobDescription_Void()
+        {
+            // Arrange
+            JobOpening newJob = new JobOpening("Dot Net Developer", "This is a role for the best Dot Net Developer in town.. He/She will be working with Our Team of highly technical Associates");
+            string newjobDescription = "Our Company CDS[codeDynasty Studios] need a C# and Unit Testing Developer";
+
+            // Act
+            newJob.JobDescription = newjobDescription;
+
+            // Assert
+            Assert.AreEqual(newjobDescription, newJob.JobDescription);
+        } 
     
     
     

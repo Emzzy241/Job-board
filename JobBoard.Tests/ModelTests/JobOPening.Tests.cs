@@ -12,6 +12,7 @@ namespace JobBoard.Tests.ModelTests
     {
         // 1st Test: Test for constructor
         [TestMethod]
+        [TestCategory("JobOpening")]
         public void JobOpening_CreatesInstanceOfJobOpening_JobOpening()
         {
             JobOpening newJob = new JobOpening("Dot Net Developer", "This is a role for the best Dot Net Developer in town.. He/She will be working with Our Team of highly technical Associates");
@@ -21,6 +22,7 @@ namespace JobBoard.Tests.ModelTests
     
         // 2nd Test: Test to get the JobTitle field from our constructor
         [TestMethod]
+        [TestCategory("JobOpening")]
         public void GetJobTitle_ReturnsJobTitle_String()
         {
             // Arrange
@@ -36,6 +38,7 @@ namespace JobBoard.Tests.ModelTests
     
         // 3rd Test: Test to set the JoTitle field in our constructor
         [TestMethod]
+        [TestCategory("JobOpening")]
         public void SetJobTitle_SetsJobTitle_Void()
         {
             // Arrange
@@ -51,6 +54,7 @@ namespace JobBoard.Tests.ModelTests
     
          // 4th Test: Test to get the JobDescription field from our constructor
         [TestMethod]
+        [TestCategory("JobOpening")]
         public void GetJobDescription_ReturnsJobDescription_String()
         {
             // Arrange
@@ -66,6 +70,7 @@ namespace JobBoard.Tests.ModelTests
 
         // 5th Test: Test to set the JoDescription field in our constructor
         [TestMethod]
+        [TestCategory("JobOpening")]
         public void SetJobDescription_SetsJobDescription_Void()
         {
             // Arrange
@@ -79,7 +84,20 @@ namespace JobBoard.Tests.ModelTests
             Assert.AreEqual(newjobDescription, newJob.JobDescription);
         } 
     
-    
+         [TestMethod]
+        [TestCategory("JobOpening")]
+        public void GetJobContactInfo_ReturnsJobContactInfo_Object()
+        {
+            // Arrange
+            JobOpening newJob = new JobOpening("Dot Net Developer", "This is a role for the best Dot Net Developer in town.. He/She will be working with Our Team of highly technical Associates");
+            string expectedjobContactInfo = "This is a role for the best Dot Net Developer in town.. He/She will be working with Our Team of highly technical Associates";
+
+            // Act
+            string returnedJobContactInfo = newJob.JobContactInfo;
+
+            // Assert
+            Assert.AreEqual(expectedjobContactInfo, returnedJobContactInfo);
+        } 
     
     
     

@@ -47,5 +47,18 @@ namespace JobBoard.Controllers
             return View(findJobOpening);
         }
 
+        [HttpGet("/jobboard/delete")]
+        public ActionResult Delete()
+        {
+            return View();
+        }
+
+        [HttpPost("/jobboard/deleteall")]
+        public ActionResult DeleteAll()
+        {
+            JobOpening.RemoveAllJobs();
+            return RedirectToAction("Index");
+        }
+
     }
 }

@@ -20,19 +20,19 @@ namespace JobBoard.Tests.ModelTests
         }
     
         // 2nd Test: Test to get the JobTitle field from our constructor
-        // [TestMethod]
-        // public void GetJobTitle_ReturnsJobTitle_String()
-        // {
-        //     // Arrange
-        //     JobOpening newJob = new JobOpening("Dot Net Developer");
-        //     string expectedjobTitle = "Dot Net Developer";
+        [TestMethod]
+        public void GetJobTitle_ReturnsJobTitle_String()
+        {
+            // Arrange
+            JobOpening newJob = new JobOpening("Dot Net Developer");
+            string expectedjobTitle = "Dot Net Developer";
 
-        //     // Act
-        //     string returnedJobTitle = newJob.JobTitle;
+            // Act
+            string returnedJobTitle = newJob.JobTitle;
 
-        //     // Assert
-        //     Assert.AreEqual(expectedjobTitle, returnedJobTitle);
-        // } 
+            // Assert
+            Assert.AreEqual(expectedjobTitle, returnedJobTitle);
+        } 
     
         // 3rd Test: Test to set the JobTitle field in our constructor
         // [TestMethod]

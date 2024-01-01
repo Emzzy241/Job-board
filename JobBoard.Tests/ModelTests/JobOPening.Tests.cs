@@ -34,20 +34,20 @@ namespace JobBoard.Tests.ModelTests
             Assert.AreEqual(expectedjobTitle, returnedJobTitle);
         } 
     
-        // 3rd Test: Test to set the JobTitle field in our constructor
-        // [TestMethod]
-        // public void SetJobTitle_SetsJobTitle_Void()
-        // {
-        //     // Arrange
-        //     JobOpening newJob = new JobOpening("Dot Net Developer");
-        //     string newjobTitle = "C# and Unit Testing Developer";
+        3rd Test: Test to set the JobTitle field in our constructor
+        [TestMethod]
+        public void SetJobTitle_SetsJobTitle_Void()
+        {
+            // Arrange
+            JobOpening newJob = new JobOpening("Dot Net Developer");
+            string newjobTitle = "C# and Unit Testing Developer";
 
-        //     // Act
-        //     newJob.JobTitle = newjobTitle;
+            // Act
+            newJob.JobTitle = newjobTitle;
 
-        //     // Assert
-        //     Assert.AreEqual(newjobTitle, newJob.JobTitle);
-        // } 
+            // Assert
+            Assert.AreEqual(newjobTitle, newJob.JobTitle);
+        } 
     
     
     

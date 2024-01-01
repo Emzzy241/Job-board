@@ -23,21 +23,28 @@ namespace JobBoard.Controllers
         }
 
         [HttpPost("/jobboard")]
-        public ActionResult Create(string myNewJobTitle, string myNewJobDescription, string contactsName, string contactsMail, string contactsNumber)
+        public ActionResult Create(string newJobTitle, string newJobDescription, string jobPosterName, string jobPosterMail, string jobPosterNumber)
         {
             // Create a new Contact instance
             Contact myNewJobContactInfo = new Contact
             {
-                Name = contactsName,
-                Email = contactsMail,
-                PhoneNumber = contactsNumber
+                Name = jobPosterName,
+                Email = jobPosterMail,
+                PhoneNumber = jobPosterNumber
             };
 
             // Create a new JobOpening using the parameters
-            JobOpening newJob = new JobOpening(myNewJobTitle, myNewJobDescription, myNewJobContactInfo);
+            JobOpening newJob = new JobOpening(newJobTitle, newJobDescription, myNewJobContactInfo);
 
             // Pass the newly created job to the Index view
             return RedirectToAction("Index");
+        }
+
+        [HttpGet("/jobboard/{id}")]
+        public ActionResult Show(int id)
+        {
+            JobOpening findJobOpening = JobOpening.FindJob(id);
+            return View(findJobOpening);
         }
 
     }

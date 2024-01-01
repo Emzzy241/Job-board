@@ -28,8 +28,8 @@ namespace JobBoard.Models
             JobTitle = myJobTitle;
             JobDescription = myJobDescription;
             JobContactInfo = myJobContactInfo;
-            JobOpeningId = _listOfJobs.Count;
             _listOfJobs.Add(this);
+            JobOpeningId = _listOfJobs.Count;
         }
 
         public static List<JobOpening> GetAllJobs()
@@ -44,8 +44,7 @@ namespace JobBoard.Models
 
         public static JobOpening FindJob(int jobId)
         {
-            JobOpening foundJob = _listOfJobs[jobId-1];
-            return foundJob;
+            return _listOfJobs[jobId-1];
         }
         
     }
